@@ -1,0 +1,50 @@
+[{
+"state" : {
+    "checkboxes": [
+      {
+        "id": 1,
+        "title": "Elephant",
+        "completed": false
+      },
+      {
+        "id": 2,
+        "title": "Lion",
+        "completed": false
+      },
+      {
+        "id": 3,
+        "title": "Zebra",
+        "completed": false
+      },
+      {
+        "id": 4,
+        "title": "Nature",
+        "completed": false
+      },
+      {
+        "id": 5,
+        "title": "Jazz",
+        "completed": false
+      },
+      {
+        "id": 6,
+        "title": "Telephone",
+        "completed": false
+      },
+      {
+        "id": 7,
+        "title": "Lyrics",
+        "completed": false
+      },
+      {
+        "id": 8,
+        "title": "Novel",
+        "completed": false
+      },
+      {
+        "id": 9,
+        "title": "Elephant",
+        "completed": false
+      }
+    ]
+  }}]
