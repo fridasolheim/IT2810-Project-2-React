@@ -115,3 +115,12 @@ h1{
   border: solid #ccc;
   border-width: 1px 1px 0 1px;
 }
+
+.generate{
+  background-color: grey;
+  border:solid black;
+  height: 4rem;
+  width: 10rem;
+  border-radius: 50%;
+  margin-bottom: 30px
+}

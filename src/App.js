@@ -3,22 +3,25 @@ import React,{Component} from 'react';
 import kiwi from './kiwi.svg';
 import './App.css';
 import Header from './Components/Header';
-import Checkbox from './Components/Checkbox';
+
 import Checkboxes from './Components/Checkboxes';
 import Tabs from './Components/Tabs';
+import Jazz3 from './Jazz3.mp3'
+
 
 
 
 class App extends Component {
+   
+  
 
-    
   state = {
     animals: [
       
       {
         id: 1,
         title: 'Elephant',
-        completed: false
+        completed: true
       },
       {
         id: 2,
@@ -34,7 +37,7 @@ sounds:[
       {
         id: 4,
         title: 'Nature',
-        completed: false
+        completed: true
       },
       {
         id: 5,
@@ -50,7 +53,7 @@ sounds:[
       {
         id: 7,
         title: 'Lyrics',
-        completed: false
+        completed: true
       },
       {
         id: 8,
@@ -64,6 +67,13 @@ sounds:[
       }
     ]}
 
+
+  /*  $("input:checkbox").click(function(){
+      if ($("input:checkbox:checked").length > 3){
+        return false;
+     }
+  });*/
+    
 
   // Toggle checked
   checked = (id) => {
@@ -91,17 +101,39 @@ sounds:[
       })
     });
   };
+
+
+/*onClick = (path) => {
+  fetch(path)
+.then(response => response.text())
+.then(data =>{
+this.setState({
+chosenPic : data
+}
+);
+}}*/
+ 
   
 render(){  
+
   return(
+    
     <div className="App">
+      
       <Header />
+      <div className="container1">
       <Tabs>
+        
       <div label="Welcome">
-        See ya later, <em>Alligator</em>!
+      <div className="Content">
+            <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
+            <div className='text1'><h5>Hællæ</h5></div>
+            
+          </div>
       </div>
       <div label="Page 1">
-        See ya later, <em>Alligator</em>!
+      <audio ref="audio_tag" src={Jazz3} controls autoPlay/>
+        
       </div>
       <div label="Page 2">
         See ya later, <em>Alligator</em>!
@@ -110,14 +142,11 @@ render(){
         After 'while, <em>Crocodile</em>!
       </div>
       <div label="Page 4">
-        Nothing to see here, this tab is <em>extinct</em>!
+        Heihei
       </div>
     </Tabs>
-        <div className="container1">
-          <div className="Content">
-            <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
-            <div className='text1'><h5>Hællæ</h5></div>
-          </div>
+        
+          
           <div className= "checkboxesStyle">
           <h1>Picture</h1>
           <Checkboxes checkboxes={this.state.animals} checked={this.checked}/>
@@ -126,7 +155,9 @@ render(){
           <h1>Text</h1>
           <Checkboxes checkboxes={this.state.text} checked={this.checked}/>
           </div>
-        </div>     
+          
+        </div> 
+        <button className="generate">Hei</button>    
     </div>
   );
 }};
