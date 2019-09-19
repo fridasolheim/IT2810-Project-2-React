@@ -6,67 +6,78 @@ import Header from './Components/Header';
 
 import Checkboxes from './Components/Checkboxes';
 import Tabs from './Components/Tabs';
-import Jazz3 from './Jazz3.mp3'
+
+import Page from './Components/Page'
+
+
 
 
 
 
 class App extends Component {
    
-  
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
 
-  state = {
-    animals: [
-      
-      {
-        id: 1,
-        title: 'Elephant',
-        completed: true
-      },
-      {
-        id: 2,
-        title: 'Giraffe',
-        completed: false
-      },
-      {
-        id: 3,
-        title: 'Zebra',
-        completed: false
-      }], 
-sounds:[
-      {
-        id: 4,
-        title: 'Nature',
-        completed: true
-      },
-      {
-        id: 5,
-        title: 'Jazz',
-        completed: false
-      },
-      {
-        id: 6,
-        title: 'Telephone',
-        completed: false
-      }],
+    this.state = {
+      chosenMedia:[],
+      chosenPicture:1,
+      chosenText:7,
+      chosenSound:4,
+
+      animals: [
+        
+        {
+          id: 1,
+          title: 'Elephant',
+          completed: true
+        },
+        {
+          id: 2,
+          title: 'Giraffe',
+          completed: false
+        },
+        {
+          id: 3,
+          title: 'Zebra',
+          completed: false
+        }], 
+      sounds:[
+        {
+          id: 4,
+          title: 'Nature',
+          completed: true
+        },
+        {
+          id: 5,
+          title: 'Jazz',
+          completed: false
+        },
+        {
+          id: 6,
+          title: 'Telephone',
+          completed: false
+        }],
       text:[
-      {
-        id: 7,
-        title: 'Lyrics',
-        completed: true
-      },
-      {
-        id: 8,
-        title: 'Novel',
-        completed: false
-      },
-      {
-        id: 9,
-        title: 'Poem',
-        completed: false
-      }
+        {
+          id: 7,
+          title: 'Lyrics',
+          completed: true
+        },
+        {
+          id: 8,
+          title: 'Novel',
+          completed: false
+        },
+        {
+          id: 9,
+          title: 'Poem',
+          completed: false
+        }
     ]}
 
+ 
 
   /*  $("input:checkbox").click(function(){
       if ($("input:checkbox:checked").length > 3){
@@ -75,43 +86,64 @@ sounds:[
   });*/
     
 
-  // Toggle checked
+ 
+
+  }
+
+     // Toggle checked
   checked = (id) => {
     this.setState({
       animals: this.state.animals.map((checkbox) => {
         if (checkbox.id === id){
           checkbox.completed = !checkbox.completed
-          console.log(id)
+          console.log(id);
+          this.state.chosenMedia.push(id);
         }
         return checkbox;
       }),
       sounds: this.state.sounds.map((checkbox) => {
         if (checkbox.id === id){
           checkbox.completed = !checkbox.completed
-          console.log(id)
+          console.log(id);
+          this.state.chosenMedia.push(id);
         }
         return checkbox;
       }),
       text: this.state.text.map((checkbox) => {
         if (checkbox.id === id){
           checkbox.completed = !checkbox.completed
-          console.log(id)
+          console.log(id);
+          this.state.chosenMedia.push(id);
+          console.log(this.state.chosenMedia);
         }
         return checkbox;
       })
     });
   };
+    
+  
+
+  
+
+  handleClick () {
+    
+    
+    for (var element in this.state.chosenMedia){
+      if (this.state.chosenMedia[element]<4){
+        this.state.chosenPicture=this.state.chosenMedia[element];
+      }
+      if (this.state.chosenMedia[element]>3 && this.state.chosenMedia[element]<7){
+        this.state.chosenSound=this.state.chosenMedia[element];
+      }
+      if (6<this.state.chosenMedia[element]){
+        this.state.chosenText=this.state.chosenMedia[element];
+      }
+    }
+    
+    console.log("Pic:"+this.state.chosenPicture,",Sound:"+this.state.chosenSound,",Text:"+this.state.chosenText)
+  }
 
 
-/*onClick = (path) => {
-  fetch(path)
-.then(response => response.text())
-.then(data =>{
-this.setState({
-chosenPic : data
-}
-);
-}}*/
  
   
 render(){  
@@ -132,8 +164,8 @@ render(){
           </div>
       </div>
       <div label="Page 1">
-      <audio ref="audio_tag" src={Jazz3} controls autoPlay/>
-        
+      <Page soundNr={this.state.chosenSound}/>
+    
       </div>
       <div label="Page 2">
         See ya later, <em>Alligator</em>!
@@ -157,7 +189,7 @@ render(){
           </div>
           
         </div> 
-        <button className="generate">Hei</button>    
+        <button onClick={this.handleClick} className="generate">Hei</button>    
     </div>
   );
 }};
