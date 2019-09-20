@@ -9,10 +9,8 @@ export class Checkbox extends Component{
         const{id, title} = this.props.choice;
         return(
             <div className='checkboxesStyle'>
-                <p>
-                    <input type='checkbox' onChange={this.props.checked.bind(this, id)} /> {' '}
-                    {title}
-                </p>
+                <span><input type='checkbox' onChange={this.props.checked.bind(this, id)} />{' '}{title}</span>
+                
             </div>
         )
     }
