@@ -1,17 +1,10 @@
 import React,{Component} from 'react';
-
 import kiwi from './kiwi.svg';
 import './App.css';
 import Header from './Components/Header';
-
 import Checkboxes from './Components/Checkboxes';
 import Tabs from './Components/Tabs';
-
-import Page from './Components/Page'
-
-
-
-
+import Page from './Components/Page';
 
 
 class App extends Component {
@@ -143,29 +136,25 @@ class App extends Component {
     console.log("Pic:"+this.state.chosenPicture,",Sound:"+this.state.chosenSound,",Text:"+this.state.chosenText)
   }
 
-
- 
-  
 render(){  
 
   return(
     
     <div className="App">
       
-      <Header />
+      <Header/>
       <div className="container1">
       <Tabs>
         
       <div label="Welcome">
-      <div className="Content">
+        <div className="Content">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
             <div className='text1'><h5>Hællæ</h5></div>
             
-          </div>
+        </div>
       </div>
       <div label="Page 1">
       <Page soundNr={this.state.chosenSound}/>
-    
       </div>
       <div label="Page 2">
         See ya later, <em>Alligator</em>!
@@ -176,20 +165,18 @@ render(){
       <div label="Page 4">
         Heihei
       </div>
-    </Tabs>
-        
+      </Tabs>
+      <div className= "checkboxesStyle">
+        <h2>PICTURE</h2>
+        <Checkboxes checkboxes={this.state.animals} checked={this.checked}/>
+        <h2>SOUNDS</h2>
+        <Checkboxes checkboxes={this.state.sounds} checked={this.checked}/>
+        <h2>TEXT</h2>
+        <Checkboxes checkboxes={this.state.text} checked={this.checked}/>
+        <div onClick={this.handleClick} className="generate">GENERATE ART</div>
+      </div>
+    </div> 
           
-          <div className= "checkboxesStyle">
-          <h1>Picture</h1>
-          <Checkboxes checkboxes={this.state.animals} checked={this.checked}/>
-          <h1>Sounds</h1>
-          <Checkboxes checkboxes={this.state.sounds} checked={this.checked}/>
-          <h1>Text</h1>
-          <Checkboxes checkboxes={this.state.text} checked={this.checked}/>
-          </div>
-          
-        </div> 
-        <button onClick={this.handleClick} className="generate">Hei</button>    
     </div>
   );
 }};
