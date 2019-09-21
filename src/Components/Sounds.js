@@ -20,9 +20,10 @@ class Sounds extends Component {
         
       }
         state = {
-        playlist:[]
+        playlist:[],
         }
         number=this.props.soundNr;
+        
      
         
     displaySound(){
@@ -37,12 +38,21 @@ class Sounds extends Component {
         }
     }
 
+    /*sendData() {
+        console.log("Går inn i senddata");
+        this.props.parentCallBack("HeiHeiHei");
+    }*/
+
+
     render(){ 
         return(
-            //this.displaySound(),
-            //console.log("Hei dette er moro for unga", this.state.playlist[0]),
-            <audio ref="audio_tag" src={"/Tecno3.mp3"} controls autoPlay/>
-            //console.log(this.state.playlist)
+
+            this.displaySound(),
+            console.log("Hei dette er moro for unga", this.state.playlist[0]),
+            <audio  src={this.state.playlist[0]} controls autoPlay/>
+            
+            
+
 
     );}
 }
