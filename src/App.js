@@ -5,6 +5,7 @@ import Header from './Components/Header';
 import Checkboxes from './Components/Checkboxes';
 import Tabs from './Components/Tabs';
 import Page from './Components/Page';
+//import Poem1 from '../public/Poem1.json';
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
       chosenPicture:1,
       chosenText:7,
       chosenSound:4,
+      teksten:null,
 
       animals: [
         
@@ -69,19 +71,20 @@ class App extends Component {
           completed: false
         }
     ]}
-
- 
-
-  /*  $("input:checkbox").click(function(){
-      if ($("input:checkbox:checked").length > 3){
-        return false;
-     }
-  });*/
-    
-
- 
-
   }
+
+  //
+  componentDidMount(){
+    fetch("giraff1.svg")
+      .then(response => response.text())
+      .then(data =>{
+        console.log(data)
+        this.setState({
+          teksten : data
+        })
+        console.log("blir kjørt")
+      })
+    }
 
      // Toggle checked
   checked = (id) => {
@@ -89,6 +92,7 @@ class App extends Component {
       animals: this.state.animals.map((checkbox) => {
         if (checkbox.id === id){
           checkbox.completed = !checkbox.completed
+
           console.log(id);
           this.state.chosenMedia.push(id);
         }
@@ -97,6 +101,7 @@ class App extends Component {
       sounds: this.state.sounds.map((checkbox) => {
         if (checkbox.id === id){
           checkbox.completed = !checkbox.completed
+
           console.log(id);
           this.state.chosenMedia.push(id);
         }
@@ -105,6 +110,7 @@ class App extends Component {
       text: this.state.text.map((checkbox) => {
         if (checkbox.id === id){
           checkbox.completed = !checkbox.completed
+
           console.log(id);
           this.state.chosenMedia.push(id);
           console.log(this.state.chosenMedia);
@@ -113,10 +119,7 @@ class App extends Component {
       })
     });
   };
-    
-  
 
-  
 
   handleClick () {
     
@@ -136,17 +139,22 @@ class App extends Component {
     console.log("Pic:"+this.state.chosenPicture,",Sound:"+this.state.chosenSound,",Text:"+this.state.chosenText)
   }
 
+
+
 render(){  
 
   return(
+    this.componentDidMount(),
     
     <div className="App">
       
+
       <Header/>
       <div className="container1">
       <Tabs>
         
       <div label="Welcome">
+
         <div className="Content">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
             <div className='text1'><h5>Hællæ</h5></div>
@@ -154,17 +162,22 @@ render(){
         </div>
       </div>
       <div label="Page 1">
-      <Page soundNr={this.state.chosenSound}/>
+      <Page soundNr={this.state.chosenSound} ref="audio_tag1"/>
+      <div dangerouslySetInnerHTML={{__html: this.state.teksten}}/>
+      <div></div>
+
       </div>
       <div label="Page 2">
+      <Page soundNr={this.state.chosenSound} ref="audio_tag2"/>
         See ya later, <em>Alligator</em>!
       </div>
       <div label="Page 3">
-        After 'while, <em>Crocodile</em>!
+      <div dangerouslySetInnerHTML={{__html: this.state.teksten}}/>
+      
       </div>
       <div label="Page 4">
-        Heihei
       </div>
+
       </Tabs>
       <div className= "checkboxesStyle">
         <h2>PICTURE</h2>

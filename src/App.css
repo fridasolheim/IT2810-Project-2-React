@@ -23,6 +23,7 @@
   color: #61dafb;
 }
 .Content{
+
   border: 1px solid black;
   text-align: center;
   display: flex;
@@ -54,6 +55,7 @@
 }
 .Header{
   background-color: #282c34;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,12 +98,14 @@ h2{
   margin-top: 10px;
   margin-bottom: 20px;
 
+
 }
 
 .checkBoxes{
   display: flex;
   justify-content: space-around;
   border: 2px solid black;
+
   margin-right: 20px;
   margin-left: 20px;  
 }
@@ -111,9 +115,11 @@ h2{
   display: flex;
   align-items: left !important;
   flex-direction: column;
+
   vertical-align: middle;
   float: left;
   margin-bottom: 5px;
+
 
 }
 
@@ -136,6 +142,7 @@ h2{
 }
 
 .generate{
+
   background-color: #282c34;
   height: 40px;
   line-height: 40px;
@@ -157,3 +164,4 @@ h2{
   box-shadow: 0px 0px 0px 3px black;
 
 }
+
