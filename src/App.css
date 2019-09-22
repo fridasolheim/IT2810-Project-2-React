@@ -91,14 +91,21 @@ h2{
 .container1{
   display: flex;
   justify-content: space-around;
-  align-content: center;
+  align-content: left;
   /*border: 2px solid black;*/
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 10px;
-  margin-bottom: 20px;
+}
 
-
+.container2{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  /*border: 2px solid black;*/
+  padding-left: 30%;
+  padding-right: 30%;
+  margin-top: 10px;
 }
 
 .checkBoxes{
@@ -138,11 +145,10 @@ h2{
 .tab-list-active {
   background-color: white;
   border: solid #ccc;
-  border-width: 1px 1px 0 1px;
+  border-width: 1px 1px 0px 1px;
 }
 
-.generate{
-
+.buttonStyle{
   background-color: #282c34;
   height: 40px;
   line-height: 40px;
@@ -156,7 +162,7 @@ h2{
   text-align: center;
   align-content: center;
 }
-.generate:hover{
+.buttonStyle:hover{
   /*font-style: italic;*/
   font-weight: 700;
   color: #282c34;
