@@ -126,6 +126,7 @@ class App extends Component {
     const chosenText = localStorage.getItem('chosenText');
     this.setState({chosenPicture, chosenSound, chosenText});
     console.log("Fetched numbers: ", chosenPicture, chosenSound, chosenText)
+    console.log(this.state.chosenPicture,this.state.chosenSound,this.state.chosenText)
   };
   
   //upon clicking generate art
@@ -149,7 +150,6 @@ class App extends Component {
 
 render(){  
   return(
-    this.componentDidMount(),
     <div className="App">
       <Header/>
       <div className="container1">
@@ -162,6 +162,7 @@ render(){
         </div>
         <div label="Page 1">
           <Page soundNr={this.state.chosenSound} ref="audio_tag1"/>
+          
           <div dangerouslySetInnerHTML={{__html: this.state.teksten}}/>
         </div>
         <div label="Page 2">
@@ -196,3 +197,5 @@ render(){
 }};
 
 export default App;
+
+//{this.componentDidMount()}
