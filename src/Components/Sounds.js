@@ -10,7 +10,7 @@ import Tecno2 from '../Tecno2.mp3'
 import Tecno3 from '../Tecno3.mp3'
 import Tecno4 from '../Tecno4.mp3'*/
 import App from '../App';
-import './Page';
+import Page from './Page';
 
 class Sounds extends Component {
 
@@ -41,10 +41,9 @@ class Sounds extends Component {
 
     render(){ 
         return(
-
             this.displaySound(),
             console.log("Hei dette er moro for unga", this.state.playlist[0]),
-            <audio  src={this.state.playlist[0]} controls autoPlay/>
+            <audio src={this.state.playlist[0]} controls autoPlay/>
     );}
 }
   

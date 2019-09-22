@@ -149,6 +149,7 @@ class App extends Component {
 
 render(){  
   return(
+    this.componentDidMount(),
     <div className="App">
       <Header/>
       <div className="container1">
@@ -157,7 +158,7 @@ render(){
           <div className="Content">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
             <div className='text1'><h5>Hællæ</h5></div> 
-            </div>
+          </div>
         </div>
         <div label="Page 1">
           <Page soundNr={this.state.chosenSound} ref="audio_tag1"/>
