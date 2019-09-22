@@ -15,9 +15,9 @@ class App extends Component {
 
     this.state = {
       chosenMedia:[],
-      chosenPicture:1,
-      chosenSound:4,
-      chosenText:7,
+      chosenPicture: 1,
+      chosenSound: 4,
+      chosenText: 7,
       
       animals: [
         {
@@ -68,14 +68,6 @@ class App extends Component {
           completed: false
         }
     ]}
-
- 
-
-  /*  $("input:checkbox").click(function(){
-      if ($("input:checkbox:checked").length > 3){
-        return false;
-     }
-  });*/
 }
 
   // Toggle checked
@@ -135,11 +127,14 @@ class App extends Component {
       if (this.state.chosenMedia[element]>3 && this.state.chosenMedia[element]<7){
         this.setState({chosenSound: this.state.chosenMedia[element]});
       }
-      if (6<this.state.chosenMedia[element]){
+      if (this.state.chosenMedia[element]>6){
         this.setState({chosenText: this.state.chosenMedia[element]});
       }
     }  
     console.log("Pic:"+this.state.chosenPicture,",Sound:"+this.state.chosenSound,",Text:"+this.state.chosenText)
+  }
+  handleClear(){
+    //this.setState({chosenMedia: []})
   }
 
 render(){  
@@ -180,15 +175,10 @@ render(){
         <div onClick={this.handleSave} className="buttonStyle">SAVE ART</div>
         <div onClick={this.handleFetch} className="buttonStyle">FETCH ART</div>
         <div onClick={this.handleClick} className="buttonStyle">GENERATE ART</div>
+        <div onClick={this.handleClear} className="buttonStyle">CLEAR ART</div>
       </div>     
     </div>
   );
 }};
-
-/*const checkboxesStyle = {
-  display: flex,
-  direction: column,
-}*/
-
 
 export default App;
