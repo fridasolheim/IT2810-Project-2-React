@@ -16,9 +16,9 @@ class App extends Component {
     this.state = {
       chosenMedia:[],
       chosenPicture: 1,
-      chosenSound: 4,
+      chosenSound: 5,
       chosenText: 7,
-      teksten: null,
+      activeTab: 1,
       
       animals: [
         {
@@ -33,13 +33,13 @@ class App extends Component {
         },
         {
           id: 3,
-          title: 'Zebra',
+          title: 'Dog',
           completed: false
         }], 
       sounds:[
         {
           id: 4,
-          title: 'Nature',
+          title: 'Techno',
           completed: true
         },
         {
@@ -70,15 +70,7 @@ class App extends Component {
         }
     ]}
 }
-  componentDidMount(){
-    fetch("giraff1.svg")
-      .then(response => response.text())
-      .then(data =>{
-        this.setState({
-          teksten : data
-        })
-      })
-  }
+
 
   // Toggle checked
   checked = (id) => {
@@ -148,33 +140,37 @@ class App extends Component {
     //this.setState({chosenMedia: []})
   }
 
+  whichTab = (tab) => {
+    this.setState ({
+      activeTab: tab
+    })
+  }
+
 render(){  
   return(
     <div className="App">
       <Header/>
       <div className="container1">
-        <Tabs>
+        <Tabs whichTab={this.whichTab}>
         <div label="Welcome">
           <div className="Content">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
             <div className='text1'><h5>Hællæ</h5></div> 
           </div>
         </div>
-        <div label="Page 1">
-          <Page soundNr={this.state.chosenSound} ref="audio_tag1"/>
+        <div label="0">
+          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} activeTab={this.state.activeTab}/>
           
-          <div dangerouslySetInnerHTML={{__html: this.state.teksten}}/>
         </div>
-        <div label="Page 2">
-          See ya later, <em>Alligator</em>!
-          <Page soundNr={this.state.chosenSound} ref="audio_tag1"/>
+        <div label="1">
+          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture}activeTab={this.state.activeTab}/>
         </div>
-        <div label="Page 3">
+        <div label="2">
           After 'while, <em>Crocodile</em>!
-          <div dangerouslySetInnerHTML={{__html: this.state.teksten}}/>
+          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture}activeTab={this.state.activeTab}/>
         </div>
-        <div label="Page 4">
-          Heihei
+        <div label="3">
+          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture}activeTab={this.state.activeTab}/> 
         </div>
         </Tabs> 
         <div className= "checkboxesStyle">
