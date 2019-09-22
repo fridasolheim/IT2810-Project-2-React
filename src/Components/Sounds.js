@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import App from '../App';
-import Page from './Page';
+//import App from '../App';
+//import Page from './Page';
 
 class Sounds extends Component {
-
     constructor(props){
         super(props);
       }
