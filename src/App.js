@@ -18,6 +18,7 @@ class App extends Component {
       chosenPicture: 1,
       chosenSound: 4,
       chosenText: 7,
+      teksten: null,
       
       animals: [
         {
@@ -69,6 +70,15 @@ class App extends Component {
         }
     ]}
 }
+  componentDidMount(){
+    fetch("giraff1.svg")
+      .then(response => response.text())
+      .then(data =>{
+        this.setState({
+          teksten : data
+        })
+      })
+  }
 
   // Toggle checked
   checked = (id) => {
@@ -150,13 +160,16 @@ render(){
             </div>
         </div>
         <div label="Page 1">
-          <Page soundNr={this.state.chosenSound}/>
+          <Page soundNr={this.state.chosenSound} ref="audio_tag1"/>
+          <div dangerouslySetInnerHTML={{__html: this.state.teksten}}/>
         </div>
         <div label="Page 2">
           See ya later, <em>Alligator</em>!
+          <Page soundNr={this.state.chosenSound} ref="audio_tag1"/>
         </div>
         <div label="Page 3">
           After 'while, <em>Crocodile</em>!
+          <div dangerouslySetInnerHTML={{__html: this.state.teksten}}/>
         </div>
         <div label="Page 4">
           Heihei
