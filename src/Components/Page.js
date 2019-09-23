@@ -11,11 +11,13 @@ class Page extends Component {
         bildeTittel: null,
         bildeListe:[], 
         playlist:[],
+        tekstListe:[],
         lyd: null
         } ;
     
     soundNumber=this.props.soundNr;
     picNumber=this.props.pictureNr;
+    textNumber=this.props.textNr;
     
 
     getImage(){
@@ -31,6 +33,19 @@ class Page extends Component {
           })
     }
 
+    getText(){
+        this.displayText()
+        var nummer = parseInt(this.props.activeTab)
+        var textPath=this.state.tekstListe[nummer];
+        fetch(textPath)
+          .then(response => response.text())
+          .then(data =>{
+            this.setState({
+              tekstTittel : data
+            })
+          })
+    }
+
     getSound(){
         this.displaySound()
         var nummer = parseInt(this.props.activeTab)
@@ -40,7 +55,7 @@ class Page extends Component {
 
     componentDidMount() {
         this.getImage()
-        //this.getText()
+        this.getText()
         this.getSound()
         console.log(this.props.activeTab)
       }
@@ -56,6 +71,18 @@ class Page extends Component {
         }
         if (this.picNumber===3){
             this.state.bildeListe.push("Dog1.svg","Dog2.svg","Dog3.svg","Dog4.svg")
+        }
+    }
+
+    displayText(){
+        if (this.picNumber===1){
+            this.state.tekstListe.push("Poem1.json","Poem1.json","Poem1.json","Poem1.json")
+        }
+        if (this.picNumber===2){
+            this.state.tekstListe.push("Poem1.json","Poem1.json","Poem1.json","Poem1.json")
+        }
+        if (this.picNumber===3){
+            this.state.tekstListe.push("Poem1.json","Poem1.json","Poem1.json","Poem1.json")
         }
     }
 
@@ -76,6 +103,7 @@ class Page extends Component {
             <div>
                 <audio src={this.state.lyd} controls autoPlay/>,
                 <div dangerouslySetInnerHTML={{__html: this.state.bildeTittel}}/>
+                <div dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/>
             </div>
         );
     }
