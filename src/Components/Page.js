@@ -75,14 +75,14 @@ class Page extends Component {
     }
 
     displayText(){
-        if (this.picNumber===1){
-            this.state.tekstListe.push("Poem1.json","Poem1.json","Poem1.json","Poem1.json")
+        if (this.textNumber===7){
+            this.state.tekstListe.push("Poem1.json","Poem2.json","Poem3.json","Poem4.json")
         }
-        if (this.picNumber===2){
-            this.state.tekstListe.push("Poem1.json","Poem1.json","Poem1.json","Poem1.json")
+        if (this.textNumber===8){
+            this.state.tekstListe.push("Novel1.json","Novel2.json","Novel3.json","Novel4.json")
         }
-        if (this.picNumber===3){
-            this.state.tekstListe.push("Poem1.json","Poem1.json","Poem1.json","Poem1.json")
+        if (this.textNumber===9){
+            this.state.tekstListe.push("Lyrics1.json","Lyrics2.json","Lyrics3.json","Lyrics4.json")
         }
     }
 
@@ -101,9 +101,11 @@ class Page extends Component {
     render(){
         return(
             <div>
+                <div className="Content">
+                    <div  dangerouslySetInnerHTML={{__html: this.state.bildeTittel}}/>
+                    <div  className="image1"><div  className="image1" dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/></div>
+                </div>
                 <audio src={this.state.lyd} controls autoPlay/>,
-                <div dangerouslySetInnerHTML={{__html: this.state.bildeTittel}}/>
-                <div dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/>
             </div>
         );
     }

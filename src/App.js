@@ -55,7 +55,7 @@ class App extends Component {
       text:[
         {
           id: 7,
-          title: 'Lyrics',
+          title: 'Poem',
           completed: true
         },
         {
@@ -65,7 +65,7 @@ class App extends Component {
         },
         {
           id: 9,
-          title: 'Poem',
+          title: 'Lyrics',
           completed: false
         }
     ]}
@@ -131,7 +131,11 @@ class App extends Component {
   }
 
   handleClear= () => {
-    this.setState({ chosenMedia: [] });
+    //Setter tilbake state:
+    this.setState({ chosenMedia: [null,null,null], chosenText:this.null, chosenSound:this.null, chosenPicture:this.null });
+    //TODO: Vi må oppdatere siden på et vis, og få fjernet avkrysningen
+    
+    
   }
 
   whichTab = (tab) => {
@@ -149,7 +153,8 @@ render(){
         <div label="Welcome">
           <div className="Content">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
-            <div className='text1'><h5>Hællæ</h5></div> 
+            <div className='text1'><h5>Create your own Gallery</h5><p>1. Choose one category for picture, sound and text </p>
+            <p>2. Press "Generate art"</p><p>3. Click on the tabs to see your collection</p><p>4. Click "Save art" to save the collection</p></div> 
           </div>
         </div>
         <div label="0">
