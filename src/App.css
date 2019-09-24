@@ -172,6 +172,7 @@ h2{
 .inputName{
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
+  text-align: center;
 }
 
 .headerForm{

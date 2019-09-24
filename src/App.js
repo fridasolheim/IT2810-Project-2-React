@@ -181,7 +181,6 @@ render(){
         <div onClick={this.handleFetch} className="buttonStyle">FETCH ART</div>
         <div onClick={this.handleClear} className="buttonStyle">CLEAR ART</div>
         <div onClick={this.handleClick} className="buttonStyle">GENERATE ART</div>
-        
       </div>     
     </div>
   );
