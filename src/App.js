@@ -157,14 +157,13 @@ render(){
           
         </div>
         <div label="1">
-          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture}textNr={this.state.chosenText}activeTab={this.state.activeTab}/>
+          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/>
         </div>
         <div label="2">
-          After 'while, <em>Crocodile</em>!
-          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture}textNr={this.state.chosenText}activeTab={this.state.activeTab}/>
+          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/>
         </div>
         <div label="3">
-          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture}textNr={this.state.chosenText}activeTab={this.state.activeTab}/> 
+          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/> 
         </div>
         </Tabs> 
         <div className= "checkboxesStyle">
