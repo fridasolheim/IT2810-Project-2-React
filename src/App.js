@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import kiwi from './kiwi.svg';
 import './App.css';
 import Header from './Components/Header';
-import Checkboxes from './Components/Checkboxes';
 import Tabs from './Components/Tabs';
 import Page from './Components/Page';
 
@@ -14,135 +13,108 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      chosenMedia: [null,null,null],
-      chosenPicture: null,
-      chosenSound: null,
-      chosenText: null,
+      chosenPicture: 1,
+      chosenSound: 4,
+      chosenText: 7,
       activeTab:1,
-      
-      animals: [
+
+      pictures: [
         {
           id: 1,
           title: 'Elephant',
-          completed: true
+          completed: true,
         },
         {
           id: 2,
           title: 'Giraffe',
-          completed: false
+          completed: false,
         },
         {
           id: 3,
           title: 'Dog',
-          completed: false
+          completed: false,
         }], 
       sounds:[
         {
           id: 4,
           title: 'Techno',
-          completed: true
+          completed: true,
         },
         {
           id: 5,
           title: 'Jazz',
-          completed: false
+          completed: false,
         },
         {
           id: 6,
           title: 'Telephone',
-          completed: false
+          completed: false,
         }],
       text:[
         {
           id: 7,
           title: 'Poem',
-          completed: true
+          completed: true,
         },
         {
           id: 8,
           title: 'Novel',
-          completed: false
+          completed: false,
         },
         {
           id: 9,
           title: 'Lyrics',
-          completed: false
+          completed: false,
         }
     ]}
 }
 
-
-  // Toggle checked
-  checked = (id) => {
-    this.setState({
-      animals: this.state.animals.map((checkbox) => {
-        if (checkbox.id === id){
-          checkbox.completed = !checkbox.completed
-          console.log("pic: ",id);
-          this.state.chosenMedia.splice(0, 1, id); //splice-syntax: (index, how many elements to be deleted (here it removes its placeholder), element to be inserted)
-        }
-        return checkbox;
-      }),
-      sounds: this.state.sounds.map((checkbox) => {
-        if (checkbox.id === id){
-          checkbox.completed = !checkbox.completed
-          console.log("sound: ",id);
-          this.state.chosenMedia.splice(1, 1, id);
-        }
-        return checkbox;
-      }),
-      text: this.state.text.map((checkbox) => {
-        if (checkbox.id === id){
-          checkbox.completed = !checkbox.completed
-          console.log("txt: ",id);
-          this.state.chosenMedia.splice(2, 1, id);
-        }
-        console.log(this.state.chosenMedia);
-        return checkbox;
-      })
-    });
-  };
-
-  //NB! handleClick/generate art must have been clicked before trying to save and fetch the numbers.
   handleSave = () => {
     //const {chosenPicture, chosenSound, chosenText} = this.state;
-    localStorage.setItem('chosenPicture', this.state.chosenMedia[0]);
-    localStorage.setItem('chosenSound', this.state.chosenMedia[1]);
-    localStorage.setItem('chosenText', this.state.chosenMedia[2]);
+    localStorage.setItem('chosenPicture', this.state.chosenPicture);
+    localStorage.setItem('chosenSound', this.state.chosenSound);
+    localStorage.setItem('chosenText', this.state.chosenText);
     console.log("Numbers transmitted to local storage");
   }
 
   handleFetch = () => {
-    const chosenPicture = localStorage.getItem('chosenPicture');
-    const chosenSound = localStorage.getItem('chosenSound');
-    const chosenText = localStorage.getItem('chosenText');
-    this.setState({chosenPicture, chosenSound, chosenText});
-    console.log("Fetched numbers: ", chosenPicture, chosenSound, chosenText)
-    console.log(this.state.chosenPicture,this.state.chosenSound,this.state.chosenText)
-  }
-  
-  //upon clicking generate art
-  handleClick = () => {
-    this.setState({chosenPicture: this.state.chosenMedia[0]});
-    this.setState({chosenSound: this.state.chosenMedia[1]});
-    this.setState({chosenText: this.state.chosenMedia[2]});
-    console.log("handleClick clicked!");
-    console.log("pic:" +this.state.chosenPicture,", sound:" +this.state.chosenSound,", text:" +this.state.chosenText);
+    console.log("Fra local: ", localStorage.getItem('chosenPicture'), localStorage.getItem('chosenSound'), localStorage.getItem('chosenText'));
+    this.setState({chosenPicture: Number(localStorage.getItem('chosenPicture'))});
+    this.setState({chosenSound: Number(localStorage.getItem('chosenSound'))});
+    this.setState({chosenText: Number(localStorage.getItem('chosenText'))});
+    console.log("Fetched numbers: ", this.state.chosenPicture, this.state.chosenSound, this.state.chosenText);
   }
 
-  handleClear= () => {
-    //Setter tilbake state:
-    this.setState({ chosenMedia: [null,null,null], chosenText:this.null, chosenSound:this.null, chosenPicture:this.null });
-    //TODO: Vi må oppdatere siden på et vis, og få fjernet avkrysningen
-    
-    
+  //upon clicking "generate art"
+  handleClick = (formSubmitEvent) => {
+    formSubmitEvent.preventDefault();
+    console.log("handleClick clicked!");
+    console.log("pic:" + this.state.chosenPicture,", sound:" + this.state.chosenSound,", text:" + this.state.chosenText);
   }
+
+  handleClear = () => {
+    //Reset state:
+    this.setState({chosenText: this.null, chosenSound: this.null, chosenPicture: this.null});
+  };
 
   whichTab = (tab) => {
     this.setState ({
       activeTab: tab
     })
   }
+  
+  handleOptionChange = changeEvent => {
+      if((Number(changeEvent.target.value))<4){
+        this.setState({chosenPicture: Number(changeEvent.target.value)})
+      }
+      else if((Number(changeEvent.target.value))>3 && (Number(changeEvent.target.value))<7){
+        this.setState({chosenSound: Number(changeEvent.target.value)})
+      }
+      else if((Number(changeEvent.target.value))>6){
+        this.setState({chosenText: Number(changeEvent.target.value)})
+      }
+  };
+
 
 render(){  
   return(
@@ -159,7 +131,6 @@ render(){
         </div>
         <div label="0">
           <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/>
-          
         </div>
         <div label="1">
           <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/>
@@ -173,23 +144,78 @@ render(){
         </Tabs> 
         <div className= "checkboxesStyle">
           <h2>PICTURE</h2>
-          <Checkboxes checkboxes={this.state.animals} checked={this.checked}/>
+          <form>
+          <div className="pictures">
+          <label>
+              <input type="radio" name="picturesGroup" value="1" className="form-check-input" checked={this.state.chosenPicture === 1} onChange={this.handleOptionChange}/>
+              Elephant
+            </label>
+          </div>
+          <div className="pictures">
+            <label>
+              <input type="radio" name="picturesGroup" value="2" className="form-check-input" checked={this.state.chosenPicture === 2} onChange={this.handleOptionChange}/>
+              Giraffe
+            </label>
+          </div>
+          <div className="pictures">
+            <label>
+              <input type="radio" name="picturesGroup" value="3" className="form-check-input" checked={this.state.chosenPicture === 3} onChange={this.handleOptionChange}/>
+              Dog
+            </label>
+          </div>
+      </form>
           <h2>SOUNDS</h2>
-          <Checkboxes checkboxes={this.state.sounds} checked={this.checked}/>
+          <form>
+          <div className="sounds">
+          <label>
+              <input type="radio" name="soundsGroup" value="4" className="form-check-input-2" checked={this.state.chosenSound === 4} onChange={this.handleOptionChange}/>
+              Techno
+            </label>
+          </div>
+          <div className="sounds">
+            <label>
+              <input type="radio" name="soundsGroup" value="5" className="form-check-input-2" checked={this.state.chosenSound === 5} onChange={this.handleOptionChange}/>
+              Jazz
+            </label>
+          </div>
+          <div className="sounds">
+            <label>
+              <input type="radio" name="soundsGroup" value="6" className="form-check-input-2" checked={this.state.chosenSound === 6} onChange={this.handleOptionChange}/>
+              Ringtone
+            </label>
+          </div>
+      </form>
           <h2>TEXT</h2>
-          <Checkboxes checkboxes={this.state.text} checked={this.checked}/>
-        </div>
+          <form>
+          <div className="text">
+          <label>
+              <input type="radio" name="textGroup" value="7" className="form-check-input-3" checked={this.state.chosenText === 7} onChange={this.handleOptionChange}/>
+              Poem
+            </label>
+          </div>
+          <div className="text">
+            <label>
+              <input type="radio" name="textGroup" value="8" className="form-check-input-3" checked={this.state.chosenText === 8} onChange={this.handleOptionChange}/>
+              Novel
+            </label>
+          </div>
+          <div className="text">
+            <label>
+              <input type="radio" name="textGroup" value="9" className="form-check-input-3" checked={this.state.chosenText === 9} onChange={this.handleOptionChange}/>
+              Lyrics
+            </label>
+          </div>
+      </form>
+      </div>
       </div>    
       <div className='container2'>
         <div onClick={this.handleSave} className="buttonStyle">SAVE ART</div>
         <div onClick={this.handleFetch} className="buttonStyle">FETCH ART</div>
         <div onClick={this.handleClear} className="buttonStyle">CLEAR ART</div>
-        <div onClick={this.handleClick} className="buttonStyle">GENERATE ART</div>
+        <div onClick={this.handleClick} type="submit" className="buttonStyle">GENERATE ART</div>
       </div>     
     </div>
   );
 }};
 
 export default App;
-
-//{this.componentDidMount()}
