@@ -58,8 +58,17 @@ class Page extends Component {
         this.getText()
         this.getSound()
         console.log(this.props.activeTab)
-      }
+    }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.activeTab !== prevProps.activeTab) {
+            this.getImage()
+            this.getText()
+            this.getSound()
+            console.log(this.props.activeTab)
+        }
+       
+    }
       
 
      displayPicture(){

@@ -9,9 +9,7 @@ class Checkboxes extends Component{
         ));
     }
 }
-
 // Proptypes
-
 Checkboxes.propTypes = {
     checkboxes: PropTypes.array.isRequired,
     checked: PropTypes.func.isRequired
