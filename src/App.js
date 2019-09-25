@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import kiwi from './kiwi.svg';
 import './App.css';
 import Header from './Components/Header';
-import Checkboxes from './Components/Checkboxes';
 import Tabs from './Components/Tabs';
 import Page from './Components/Page';
 
@@ -12,116 +11,69 @@ class App extends Component {
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    //this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
-      chosenMedia: [null,null,null],
-      chosenPicture: null,
-      chosenSound: null,
-      chosenText: null,
+      chosenPicture: 1,
+      chosenSound: 4,
+      chosenText: 7,
       activeTab:1,
-      
+
       pictures: [
         {
           id: 1,
           title: 'Elephant',
           completed: true,
-          group: 1
         },
         {
           id: 2,
           title: 'Giraffe',
           completed: false,
-          group: 1
-          
         },
         {
           id: 3,
           title: 'Dog',
           completed: false,
-          group: 1
         }], 
       sounds:[
         {
           id: 4,
           title: 'Techno',
           completed: true,
-          group: 2
         },
         {
           id: 5,
           title: 'Jazz',
           completed: false,
-          group: 2
         },
         {
           id: 6,
           title: 'Telephone',
           completed: false,
-          group: 2
         }],
       text:[
         {
           id: 7,
           title: 'Poem',
           completed: true,
-          group: 3
         },
         {
           id: 8,
           title: 'Novel',
           completed: false,
-          group: 3
         },
         {
           id: 9,
           title: 'Lyrics',
           completed: false,
-          group: 3
         }
     ]}
 }
 
-  // Toggle checked
-  checked = (id) => {
-    this.setState({
-      pictures: this.state.pictures.map((radio) => {
-        if (radio.id === id){
-          radio.completed = !radio.completed
-          console.log("pic: ",id);
-          this.state.chosenMedia.splice(0, 1, id); //splice-syntax: (index, how many elements to be deleted (here it removes its placeholder), element to be inserted)
-          this.setState({selectedOptionPic: id});
-        }
-        return radio;
-      }),
-      sounds: this.state.sounds.map((radio) => {
-        if (radio.id === id){
-          radio.completed = !radio.completed
-          console.log("sound: ",id);
-          this.state.chosenMedia.splice(1, 1, id);
-          this.setState({selectedOptionSound: id});
-        }
-        return radio;
-      }),
-      text: this.state.text.map((radio) => {
-        if (radio.id === id){
-          radio.completed = !radio.completed
-          console.log("txt: ",id);
-          this.state.chosenMedia.splice(2, 1, id);
-          this.setState({selectedOptionText: id});
-        }
-        console.log(this.state.chosenMedia);
-        return radio;
-      })
-    });
-  };
-
   handleSave = () => {
     //const {chosenPicture, chosenSound, chosenText} = this.state;
-    localStorage.setItem('chosenPicture', this.state.chosenMedia[0]);
-    localStorage.setItem('chosenSound', this.state.chosenMedia[1]);
-    localStorage.setItem('chosenText', this.state.chosenMedia[2]);
+    localStorage.setItem('chosenPicture', this.state.chosenPicture);
+    localStorage.setItem('chosenSound', this.state.chosenSound);
+    localStorage.setItem('chosenText', this.state.chosenText);
     console.log("Numbers transmitted to local storage");
   }
 
@@ -134,18 +86,15 @@ class App extends Component {
   }
 
   //upon clicking "generate art"
-  handleClick = () => {
-    this.setState({chosenPicture: this.state.chosenMedia[0]});
-    this.setState({chosenSound: this.state.chosenMedia[1]});
-    this.setState({chosenText: this.state.chosenMedia[2]});
+  handleClick = (formSubmitEvent) => {
+    formSubmitEvent.preventDefault();
     console.log("handleClick clicked!");
     console.log("pic:" + this.state.chosenPicture,", sound:" + this.state.chosenSound,", text:" + this.state.chosenText);
   }
 
   handleClear = () => {
     //Reset state:
-    this.setState({chosenMedia: [null, null, null], chosenText: this.null, chosenSound: this.null, chosenPicture: this.null});
-    //TODO: Vi må oppdatere siden på et vis, og få fjernet avkrysningen  
+    this.setState({chosenText: this.null, chosenSound: this.null, chosenPicture: this.null});
   };
 
   whichTab = (tab) => {
@@ -153,12 +102,19 @@ class App extends Component {
       activeTab: tab
     })
   }
+  
+  handleOptionChange = changeEvent => {
+      if((Number(changeEvent.target.value))<4){
+        this.setState({chosenPicture: Number(changeEvent.target.value)})
+      }
+      else if((Number(changeEvent.target.value))>3 && (Number(changeEvent.target.value))<7){
+        this.setState({chosenSound: Number(changeEvent.target.value)})
+      }
+      else if((Number(changeEvent.target.value))>6){
+        this.setState({chosenText: Number(changeEvent.target.value)})
+      }
+  };
 
-  handleChange(event) {
-    this.setState({
-      chosenPicture: event.target.value
-    });
-  }
 
 render(){  
   return(
@@ -188,61 +144,69 @@ render(){
         </Tabs> 
         <div className= "checkboxesStyle">
           <h2>PICTURE</h2>
-          <form className = "checkboxesStyle">
+          <form>
           <div className="pictures">
-            <label>
-              <input
-                type="radio"
-                name="react-tips"
-                value="1"
-                checked={true}
-                className="form-check-input"
-              />
+          <label>
+              <input type="radio" name="picturesGroup" value="1" className="form-check-input" checked={this.state.chosenPicture === 1} onChange={this.handleOptionChange}/>
               Elephant
             </label>
           </div>
-
           <div className="pictures">
             <label>
-              <input
-                type="radio"
-                name="react-tips"
-                value="2"
-                className="form-check-input"
-              />
+              <input type="radio" name="picturesGroup" value="2" className="form-check-input" checked={this.state.chosenPicture === 2} onChange={this.handleOptionChange}/>
               Giraffe
             </label>
           </div>
-
           <div className="pictures">
             <label>
-              <input
-                type="radio"
-                name="react-tips"
-                value="3"
-                className="form-check-input"
-              />
+              <input type="radio" name="picturesGroup" value="3" className="form-check-input" checked={this.state.chosenPicture === 3} onChange={this.handleOptionChange}/>
               Dog
             </label>
           </div>
-
-          <div className="form-group">
-            <button className="btn btn-primary mt-2" type="submit">
-              Save
-            </button>
+      </form>
+          <h2>SOUNDS</h2>
+          <form>
+          <div className="sounds">
+          <label>
+              <input type="radio" name="soundsGroup" value="4" className="form-check-input-2" checked={this.state.chosenSound === 4} onChange={this.handleOptionChange}/>
+              Techno
+            </label>
+          </div>
+          <div className="sounds">
+            <label>
+              <input type="radio" name="soundsGroup" value="5" className="form-check-input-2" checked={this.state.chosenSound === 5} onChange={this.handleOptionChange}/>
+              Jazz
+            </label>
+          </div>
+          <div className="sounds">
+            <label>
+              <input type="radio" name="soundsGroup" value="6" className="form-check-input-2" checked={this.state.chosenSound === 6} onChange={this.handleOptionChange}/>
+              Ringtone
+            </label>
           </div>
       </form>
-
-  );
-}
-
-
-          <Checkboxes checkboxes={this.state.pictures} checked={this.checked} className="pictures" onChange={this.handleOptionChange}/>
-          <h2>SOUNDS</h2>
-          <Checkboxes checkboxes={this.state.sounds} checked={this.checked} className="sounds" onChange={this.handleOptionChange}/>
           <h2>TEXT</h2>
-          <Checkboxes checkboxes={this.state.text} checked={this.checked} className="text" onChange={this.handleOptionChange}/>
-        </div>
+          <form>
+          <div className="text">
+          <label>
+              <input type="radio" name="textGroup" value="7" className="form-check-input-3" checked={this.state.chosenText === 7} onChange={this.handleOptionChange}/>
+              Poem
+            </label>
+          </div>
+          <div className="text">
+            <label>
+              <input type="radio" name="textGroup" value="8" className="form-check-input-3" checked={this.state.chosenText === 8} onChange={this.handleOptionChange}/>
+              Novel
+            </label>
+          </div>
+          <div className="text">
+            <label>
+              <input type="radio" name="textGroup" value="9" className="form-check-input-3" checked={this.state.chosenText === 9} onChange={this.handleOptionChange}/>
+              Lyrics
+            </label>
+          </div>
+      </form>
+      </div>
       </div>    
       <div className='container2'>
         <div onClick={this.handleSave} className="buttonStyle">SAVE ART</div>
@@ -255,5 +219,3 @@ render(){
 }};
 
 export default App;
-
-//{this.componentDidMount()}
