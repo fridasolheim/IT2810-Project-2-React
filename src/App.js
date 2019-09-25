@@ -129,9 +129,7 @@ render(){
             <p>2. Press "Generate art"</p><p>3. Click on the tabs to see your collection</p><p>4. Click "Save art" to save the collection</p></div> 
           </div>
         </div>
-        <div label="0">
-          <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/>
-        </div>
+        
         <div label="1">
           <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/>
           
