@@ -1,5 +1,8 @@
-.App {
-  margin-top: 0px;
+.App > * {
+    margin-top: 0px;
+    -webkit-flex: 1 1 0;
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;
 }
 
 .App-logo {
@@ -26,24 +29,58 @@
   display: flex;
   padding-left: 10px;
   padding-right: 10px;
-  width: 100%;
-  height: 100%;
-  max-width: 45rem;  /*erstatt med max-width for responsiv(men stygg) løsning*/
-  height: 25rem;  /*erstatt med max-height for responsiv(men stygg) løsning*/
+  width: 100vp;
+  height: 100vp;
+  /*max-width: 45rem;  /*erstatt med max-width for responsiv(men stygg) løsning
+  height: 25rem;  erstatt med max-height for responsiv(men stygg) løsning*/
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
-
+@media screen and (max-width: 415px){
+  .Content {
+    padding: 10px 10px;
+    font-size: 1em;
+    flex-direction: column;
+  }
+  .container1{
+    flex-direction: column;
+  }
+  .container2{
+    flex-direction: column;
+  }
+  .h5-header{
+    size: 9px;
+  }
+  .h1-header{
+    size: 9px;
+  }
+  .buttonStyle{
+    height: 20px;
+    line-height: 20px;
+    width: 75px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 9px;
+  }
+}
+.mediaContent{
+  width: 60vp;
+  height: 60vp;
+  flex-direction: row;
+}
 .image1{
-  width: 70%;
+  width: 70vp;
+  height: 70vp;
   align-items: right;
 }
 
 .text1{
   text-align: left;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  max-width: 10rem;
+  width: 100vp;
+  height: 100vp;
+  /*max-width: 10rem;*/
 }
 
 .Header{
@@ -51,8 +88,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 150px;
-  width: 100%;
+  height: 100vp;
+  width: 100vp;
   line-height: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
@@ -77,7 +114,8 @@ h2{
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
   letter-spacing: 3px; 
-  size: 18px;
+  justify-content: space-around;
+  size: 18px !important;
   color: white;
   font-weight: 200;
 }
@@ -85,7 +123,6 @@ h2{
   display: flex;
   justify-content: space-around;
   align-content: left;
-  /*border: 2px solid black;*/
   margin-right: 10px;
   margin-left: 5px;
   margin-top: 5px;
@@ -95,7 +132,6 @@ h2{
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  /*border: 2px solid black;*/
   padding-left: 20%;
   padding-right: 20%;
   margin-top: 10px;
@@ -110,14 +146,12 @@ h2{
 }
 
 .checkboxesStyle{
-  
   display: flex;
   align-items: left !important;
   flex-direction: column;
   vertical-align: middle;
   float: left;
   margin-bottom: 5px;
-
 }
 
 .tab-list {
@@ -145,11 +179,11 @@ h2{
   background-color: #282c34;
   height: 40px;
   line-height: 40px;
-  width: 150px;
+  width: 100px;
   margin-bottom: 20px;
   margin-top: 20px;
   vertical-align: middle;
-  font-size: 18px;
+  font-size: 11px;
   font-weight: 600;
   color: white;
   text-align: center;
@@ -193,7 +227,6 @@ h2{
   max-width:60px !important;
   max-height: 60px !important;
 }
-
 
 .textContent{
   width: 100%;
