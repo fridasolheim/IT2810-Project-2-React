@@ -67,7 +67,7 @@ class Page extends Component {
             this.state.bildeListe.push("Elephant1.svg","elefant2.svg","elefant3.svg","Elephant4.svg")
         }
         if (this.picNumber===2){
-            this.state.bildeListe.push("giraff1.svg","giraffe2.svg","Giraffe3.svg","giraffe4.svg")
+            this.state.bildeListe.push("giraff1.svg","giraffe2.svg","giraffe2.svg","giraffe4.svg")
         }
         if (this.picNumber===3){
             this.state.bildeListe.push("Dog1.svg","Dog2.svg","Dog3.svg","Dog4.svg")
