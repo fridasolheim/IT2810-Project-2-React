@@ -22,7 +22,7 @@ class Page extends Component {
 
     getImage(){
         this.displayPicture()
-        var nummer = parseInt(this.props.activeTab)
+        var nummer = parseInt(this.props.activeTab-1)
         var bildePath=this.state.bildeListe[nummer];
         fetch(bildePath)
           .then(response => response.text())
@@ -35,7 +35,7 @@ class Page extends Component {
 
     getText(){
         this.displayText()
-        var nummer = parseInt(this.props.activeTab)
+        var nummer = parseInt(this.props.activeTab-1)
         var textPath=this.state.tekstListe[nummer];
         fetch(textPath)
           .then(response => response.text())
@@ -48,7 +48,7 @@ class Page extends Component {
 
     getSound(){
         this.displaySound()
-        var nummer = parseInt(this.props.activeTab)
+        var nummer = parseInt(this.props.activeTab-1)
         this.setState({lyd: this.state.playlist[nummer]});
 
     }
