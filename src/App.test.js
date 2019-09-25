@@ -1,9 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import App from './App'
+import Header from './Components/Headerw'
+import renderer from 'react-test-renderer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
+it('renders correctly', () => {
+  const tree= renderer
+    .create(<App/>)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+
+})
+ /* const div = document.createElement('div');
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
-});
+});*/
+
+
+
+/*import React from 'react';
+import Link from '../Link.react';
+import renderer from 'react-test-renderer';
+
+it('renders correctly', () => {
+  const tree = renderer
+    .create(<Link page="http://www.facebook.com">Facebook</Link>)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});*/
