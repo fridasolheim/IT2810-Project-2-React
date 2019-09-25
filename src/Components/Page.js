@@ -46,7 +46,6 @@ class Page extends Component {
         this.displaySound()
         var nummer = parseInt(this.props.activeTab-1)
         this.setState({lyd: this.state.playlist[nummer]});
-
     }
 
     componentDidMount() {
@@ -62,11 +61,9 @@ class Page extends Component {
             this.getText()
             this.getSound()
             console.log(this.props.activeTab)
-        }
-       
+        }  
     }
       
-
      displayPicture(){
         if (this.picNumber===1){
             this.state.bildeListe.push("Elephant1.svg","elefant2.svg","elefant3.svg","Elephant4.svg")
@@ -115,4 +112,5 @@ class Page extends Component {
         );
     }
 }
+
 export default Page;

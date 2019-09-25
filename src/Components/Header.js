@@ -34,7 +34,7 @@ class Header extends Component{
             <div className="headerForm">
                 <form style={this.state.shouldHide ? {} : { display: 'none' }}>
                     <div>
-                        <input type="text" className="inputName" onChange={this.handleChange} placeholder="What's your name?"/>
+                        <input type="text" className="inputName" onChange={this.handleChange} placeholder="What's your name"/>
                         <div onClick={this.handleSubmit} className="headerSubmit">SUBMIT</div>
                     </div>
                 </form>
