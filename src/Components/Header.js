@@ -29,8 +29,8 @@ class Header extends Component{
     render(){
         return (
         <div className='Header'>
-            <h1 className="h1-header">WELCOME {sessionStorage.getItem('userValue')}</h1>
-            <h5 className="h5-header">TO OUR RANDOM ART GENERATOR</h5>
+            <span className="firstHeader" style={{"fontSize" : "23px"}}>WELCOME {sessionStorage.getItem('userValue')}</span>
+            <span className="secondHeader" style={{"fontSize" : "13px"}}>TO OUR RANDOM ART GENERATOR</span>
             <div className="headerForm">
                 <form style={this.state.shouldHide ? {} : { display: 'none' }}>
                     <div>
