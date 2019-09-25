@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import Sounds from './Sounds'
 
 class Page extends Component {
-    constructor(props){
-        super(props);
-    }
 
     state = {
         data: "",
@@ -58,8 +54,17 @@ class Page extends Component {
         this.getText()
         this.getSound()
         console.log(this.props.activeTab)
-      }
+    }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.activeTab !== prevProps.activeTab) {
+            this.getImage()
+            this.getText()
+            this.getSound()
+            console.log(this.props.activeTab)
+        }
+       
+    }
       
 
      displayPicture(){

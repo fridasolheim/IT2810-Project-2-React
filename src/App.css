@@ -23,9 +23,6 @@
   color: #61dafb;
 }
 .Content{
-
-  border: 1px solid black;
-
   display: flex;
   padding-left: 10px;
   padding-right: 10px;
@@ -201,6 +198,5 @@ h2{
 .textContent{
   width: 100%;
   max-width: 50rem;
-  
 }
 
