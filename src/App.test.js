@@ -1,12 +1,9 @@
 import React from 'react';
 import App from './App'
-import Header from './Components/Headerw'
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree= renderer
-    .create(<App/>)
-    .toJSON();
+  const tree= renderer.create(<App/>).toJSON();
   expect(tree).toMatchSnapshot();
 
 })
