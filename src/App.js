@@ -120,7 +120,7 @@ render(){
     <div className="App">
       <Header/>
       <div className="container1">
-        <Tabs whichTab={this.whichTab}>
+        <Tabs className="Tabs" whichTab={this.whichTab}>
         <div label="Welcome">
           <div className="Content">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
