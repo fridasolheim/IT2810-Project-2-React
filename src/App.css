@@ -93,8 +93,8 @@
   flex-direction: row;
 }
 .image1{
-  max-width: 1400vp;
-  max-height: 1400vp;
+  max-width: 1400rem;
+  max-height: 1400rem;
   width: 100%; 
   height: auto;
   align-items: right;

@@ -88,7 +88,6 @@ class App extends Component {
   //upon clicking "generate art"
   handleClick = (formSubmitEvent) => {
     formSubmitEvent.preventDefault();
-    console.log("handleClick clicked!");
     alert("Art generated! Check your tabs to see your collection")
   }
 
@@ -119,7 +118,6 @@ class App extends Component {
 
 render(){  
   return(
-    console.log("App starting..."),
     <div className="App">
       <Header/>
       <div className="container1">
