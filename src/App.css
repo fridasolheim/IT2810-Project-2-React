@@ -1,8 +1,5 @@
 .App > * {
     margin-top: 0px;
-    /*-webkit-flex: 1 1 0;
-    -ms-flex: 1 1 0;
-    flex: 1 1 0;*/
 }
 
 .App-logo {
@@ -29,8 +26,6 @@
   display: flex;
   padding-left: 30px;
   padding-right: 30px;
-  /*max-width: 45rem;  /*erstatt med max-width for responsiv(men stygg) løsning
-  height: 25rem;  erstatt med max-height for responsiv(men stygg) løsning*/
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;  
@@ -44,7 +39,7 @@
   align-items: center;
 
 }
-
+/*Media query for mobile screens < 500px*/
 @media screen and (max-width: 500px){
   .Content {
     padding: 10px 10px;
@@ -61,12 +56,6 @@
     flex-direction: column;
     align-items: center;
   }
-  /*.firstHeader{
-    size: 9px !important;
-  }
-  .secondHeader{
-    size: 9px !important;
-  }*/
   .buttonStyle{
     height: 20px;
     line-height: 20px;
@@ -113,7 +102,6 @@
   width: 30vp;
   height: 30vp;
   padding:10px;
-  /*max-width: 10rem;*/
 }
 
 .Header{
@@ -221,7 +209,6 @@ h2{
   align-content: center;
 }
 .buttonStyle:hover{
-  /*font-style: italic;*/
   font-weight: 700;
   color: #282c34;
   background-color: white;

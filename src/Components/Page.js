@@ -15,7 +15,7 @@ class Page extends Component {
     picNumber=this.props.pictureNr;
     textNumber=this.props.textNr;
     
-
+    //fetch image from public 
     getImage(){
         this.displayPicture()
         var nummer = parseInt(this.props.activeTab-1)
@@ -28,7 +28,7 @@ class Page extends Component {
             })
           })
     }
-
+    //fetch text from public 
     getText(){
         this.displayText()
         var nummer = parseInt(this.props.activeTab-1)
@@ -41,7 +41,7 @@ class Page extends Component {
             })
           })
     }
-
+    //fetch sound from public 
     getSound(){
         this.displaySound()
         var nummer = parseInt(this.props.activeTab-1)
@@ -61,8 +61,9 @@ class Page extends Component {
             this.getSound()
         }  
     }
-      
-     displayPicture(){
+    
+    //push selected category to list
+    displayPicture(){
         if (this.picNumber===1){
             this.state.bildeListe.push("Elephant1.svg","elefant2.svg","elefant3.svg","Elephant4.svg")
         }
@@ -73,7 +74,7 @@ class Page extends Component {
             this.state.bildeListe.push("Dog1.svg","Dog2.svg","Dog3.svg","Dog4.svg")
         }
     }
-
+    //push selected category to list
     displayText(){
         if (this.textNumber===7){
             this.state.tekstListe.push("Poem1.json","Poem2.json","Poem3.json","Poem4.json")
@@ -85,7 +86,7 @@ class Page extends Component {
             this.state.tekstListe.push("Lyrics1.json","Lyrics2.json","Lyrics3.json","Lyrics4.json")
         }
     }
-
+    //push selected category to list
     displaySound(){
         if (this.soundNumber===4){
             this.state.playlist.push("/Tecno1.mp3","/Tecno2.mp3","/Tecno3.mp3","/Tecno4.mp3")
@@ -97,7 +98,7 @@ class Page extends Component {
             this.state.playlist.push("/Ringtone1.mp3","/Ringtone2.mp3","/Ringtone3.mp3","/Ringtone4.mp3")
         }
     }
-
+    
     render(){
         return(
             <div>

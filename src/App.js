@@ -13,11 +13,12 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
 
     this.state = {
+      //states for currently selected media category
       chosenPicture: 1,
       chosenSound: 4,
       chosenText: 7,
       activeTab:1,
-
+      //states for media categories
       pictures: [
         {
           id: 1,
@@ -68,16 +69,15 @@ class App extends Component {
         }
     ]}
 }
-
+  //Save art to local storage
   handleSave = () => {
-    //const {chosenPicture, chosenSound, chosenText} = this.state;
     localStorage.setItem('chosenPicture', this.state.chosenPicture);
     localStorage.setItem('chosenSound', this.state.chosenSound);
     localStorage.setItem('chosenText', this.state.chosenText);
     console.log("Numbers transmitted to local storage");
     alert("Art saved, you can press 'Fetch Art' anytime to see your saved art")
   }
-
+  //Fetch art from local storage
   handleFetch = () => {
     this.setState({chosenPicture: Number(localStorage.getItem('chosenPicture'))});
     this.setState({chosenSound: Number(localStorage.getItem('chosenSound'))});
@@ -85,25 +85,20 @@ class App extends Component {
     alert("Art fetched, check your tabs to se your saved art")
   }
 
-  //upon clicking "generate art"
+  //Upon clicking "generate art"
   handleClick = (formSubmitEvent) => {
     formSubmitEvent.preventDefault();
     alert("Art generated! Check your tabs to see your collection")
   }
 
-  handleClear = () => {
-    //Reset state:
-    this.setState({chosenText: this.null, chosenSound: this.null, chosenPicture: this.null});
-    alert("Art cleared, click a new tab to update")
-  };
-
+  //Keep track of active tab
   whichTab = (tab) => {
     this.setState ({
       activeTab: tab
     })
   }
   
-
+  //Function for handling change in radio buttons
   handleOptionChange = changeEvent => {
       if((Number(changeEvent.target.value))<4){
         this.setState({chosenPicture: Number(changeEvent.target.value)})
@@ -116,12 +111,12 @@ class App extends Component {
       }
   };
 
+//Render function for app, including containers, tabs, page rendering and radio buttons. 
 render(){  
   return(
     <div className="App">
       <Header/>
       <div className="container1">
-        
         <Tabs className="Tabs" whichTab={this.whichTab}>
         <div label="Welcome" className="mediaContent">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
@@ -141,7 +136,6 @@ render(){
           <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/> 
         </div>
         </Tabs> 
-        
         <div className= "checkboxesStyle">
           <h2>PICTURE</h2>
           <form>
@@ -211,7 +205,6 @@ render(){
       <div className='container2'>
         <div onClick={this.handleSave} className="buttonStyle">SAVE ART</div>
         <div onClick={this.handleFetch} className="buttonStyle">FETCH ART</div>
-        <div onClick={this.handleClear} className="buttonStyle">CLEAR ART</div>
         <div onClick={this.handleClick} type="submit" className="buttonStyle">GENERATE ART</div>
       </div>     
     </div>
