@@ -88,13 +88,13 @@ class Page extends Component {
 
     displaySound(){
         if (this.soundNumber===4){
-            this.state.playlist.push("/prosjekt2/Tecno1.mp3","/prosjekt2/Tecno2.mp3","/prosjekt2/Tecno3.mp3","/prosjekt2/Tecno4.mp3")
+            this.state.playlist.push("./Tecno1.mp3","./Tecno2.mp3","./Tecno3.mp3","./Tecno4.mp3")
         }
         if (this.soundNumber===5){
-            this.state.playlist.push("/prosjekt2/Jazz1.mp3","/prosjekt2/Jazz2.mp3","/prosjekt2/Jazz3.mp3","/prosjekt2/Jazz4.mp3")
+            this.state.playlist.push("./Jazz1.mp3","./Jazz2.mp3","./Jazz3.mp3","./Jazz4.mp3")
         }
         if (this.soundNumber===6){
-            this.state.playlist.push("/prosjekt2/Ringtone1.mp3","/prosjekt2/Ringtone2.mp3","/prosjekt2/Ringtone3.mp3","/prosjekt2/Ringtone4.mp3")
+            this.state.playlist.push("./Ringtone1.mp3","./Ringtone2.mp3","./Ringtone3.mp3","./Ringtone4.mp3")
         }
     }
 
@@ -107,7 +107,9 @@ class Page extends Component {
                         <div className="image1" dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/>
                     </div>
                     <div className="break"></div>
-                    <audio src={this.state.lyd} controls autoPlay/>
+                        <audio controls autoPlay>
+                            <source src={process.env.PUBLIC_URL + this.state.lyd} type="audio/mpeg"/>
+                        </audio>
                 </div>
             </div>
         );
