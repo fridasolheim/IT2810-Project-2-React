@@ -28,16 +28,11 @@
 .Content{
   display: flex;
   padding-left: 30px;
-  padding-right: 200px;
-  margin-left: 30px;
-  margin-right: 30px;
-  width: 70vp;
-  height: 100vp;
+  padding-right: 30px;
   /*max-width: 45rem;  /*erstatt med max-width for responsiv(men stygg) løsning
   height: 25rem;  erstatt med max-height for responsiv(men stygg) løsning*/
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
 }
 @media screen and (max-width: 500px){
   .Content {
@@ -67,14 +62,17 @@
   }
 }
 .mediaContent{
-  width: 60vp;
-  height: 60vp;
+  width: 60%;
+  height: 60%;
   flex-direction: row;
 }
 .image1{
   width: 70vp;
   height: 70vp;
   align-items: right;
+}
+.tabs{
+  max-width: 70%;
 }
 
 .text1{
@@ -152,10 +150,7 @@ h2{
   float: left;
   margin-bottom: 5px;
 }
-.Tabs{
-  margin-left: 20px;
-  margin-right: 20px;
-}
+
 .tab-list {
   border-bottom: 1px solid #ccc;
   padding-left: 20px;

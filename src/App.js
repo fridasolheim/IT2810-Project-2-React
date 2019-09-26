@@ -121,14 +121,11 @@ render(){
       <Header/>
       <div className="container1">
         <Tabs className="Tabs" whichTab={this.whichTab}>
-        <div label="Welcome">
-          <div className="Content">
+        <div label="Welcome" className="mediaContent">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
             <div className='text1'><h5>Create your own Gallery</h5><p>1. Choose one category for picture, sound and text </p>
             <p>2. Press "Generate art"</p><p>3. Click on the tabs to see your collection</p><p>4. Click "Save art" to save the collection</p></div> 
-          </div>
         </div>
-
         <div label="1" classname="mediaContent">
           <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/>    
         </div>
