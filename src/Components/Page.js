@@ -105,7 +105,7 @@ class Page extends Component {
             <div>
                 <div className="Content">
                     <div  dangerouslySetInnerHTML={{__html: this.state.bildeTittel}}/>
-                    <div  className="image1"><div  className="image1" dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/></div>
+                    <div  className="image1" dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/>
                 </div>
                 <audio src={this.state.lyd} controls autoPlay/>,
             </div>
