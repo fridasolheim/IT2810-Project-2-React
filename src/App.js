@@ -119,7 +119,7 @@ class App extends Component {
 
 render(){  
   return(
-    
+    console.log("App starting..."),
     <div className="App">
       <Header/>
       <div className="container1">
