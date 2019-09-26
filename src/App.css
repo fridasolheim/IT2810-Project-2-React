@@ -39,6 +39,8 @@
     padding: 10px 10px;
     font-size: 1em;
     flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 
   }
   .container1{
     flex-direction: column;
@@ -67,8 +69,10 @@
   flex-direction: row;
 }
 .image1{
-  width: 70vp;
-  height: 70vp;
+  max-width: 1400vp;
+  max-height: 1400vp;
+  width: 100%; 
+  height: auto;
   align-items: right;
 }
 .tabs{
@@ -78,8 +82,8 @@
 .text1{
   text-align: left;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 100vp;
-  height: 100vp;
+  width: 300vp;
+  height: 30vp;
   /*max-width: 10rem;*/
 }
 
