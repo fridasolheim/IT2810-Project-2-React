@@ -69,7 +69,7 @@ class Page extends Component {
             this.state.bildeListe.push("Elephant1.svg","elefant2.svg","elefant3.svg","Elephant4.svg")
         }
         if (this.picNumber===2){
-            this.state.bildeListe.push("giraff1.svg","giraffe2.svg","giraffe2.svg","giraffe4.svg")
+            this.state.bildeListe.push("giraff1.svg","giraffe2.svg","Giraffe3.svg","Giraffe4.svg")
         }
         if (this.picNumber===3){
             this.state.bildeListe.push("Dog1.svg","Dog2.svg","Dog3.svg","Dog4.svg")
@@ -93,7 +93,7 @@ class Page extends Component {
             this.state.playlist.push("/Tecno1.mp3","/Tecno2.mp3","/Tecno3.mp3","/Tecno4.mp3")
         }
         if (this.soundNumber===5){
-            this.state.playlist.push("/Jazz2.mp3","/Jazz2.mp3","/Jazz3.mp3","/Jazz4.mp3")
+            this.state.playlist.push("/Jazz1.mp3","/Jazz2.mp3","/Jazz3.mp3","/Jazz4.mp3")
         }
         if (this.soundNumber===6){
             this.state.playlist.push("/Ringtone1.mp3","/Ringtone2.mp3","/Ringtone3.mp3","/Ringtone4.mp3")
