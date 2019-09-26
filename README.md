@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+#Dokumentasjon
+##Krav til funksjonalitet:
+Slik som beskrevet i oppgaveteksten, kan brukeren i vår applikasjon velge blant tre kategorier av bilder, tre kategorier av lyd og tre kategorier av tekst for deretter å generere en utstilling med fire kombinasjoner av disse mediene. Kategoriene brukeren kan velge mellom er hos oss Elephant, Giraffe og Dog for bilde, Jazz, Techno og Telephone for lyd, og Lyrics, Novel, og Poem for tekst.
 
-In the project directory, you can run:
+Alle de fire genererte kombinasjonene vises i hver sin fane som man kan bla mellom. Ved å endre valgene i menyen og trykke “Generate art” får man generert en ny utstilling. Den første fanen er forsiden vår, som inneholder informasjon om hvordan applikasjonen fungerer. 
 
-### `npm start`
+Bildene våre er svg-filer og hentet fra åpne kilder på nettet. Kildene til hvert bilde finner du nederst i dokumentasjonen. Lydene våre er alle mp3-filer og er hentet fra Freesound.org. Tekstene er utdrag fra kjente sangtekster, dikt og noveller. Alle disse filene ligger i public-mappen til applikasjonen vår.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##Krav til teknologi: 
+###React
+Vår løsning er en applikasjon som baserer seg på JavaScript-biblioteket React og JSX. Her har vi implementert alle UI-komponenter fra bunnen av, uten bruk av andre tredjeparts komponenter. Både bildene og teksten, som er en del av kunstverkene i oppgaven vår, hentes ved hjelp av AJAX og funksjonen fetch(). Lyden er håndtert med HTMLs innebygde audio-tag. Funksjonaliteten for tabs baserte vi på kildekoden fra [denne nettsiden.](https://alligator.io/react/tabs-component/)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+###AJAX
+Et krav som stilles til prosjektet, er at filene kun skal lastes hvis de benyttes. Dette har vi løst ved at funksjonene som henter bilde, lyd og tekst kun kjøres hvis man går inn i den aktuelle fanen som skal vise frem det aktuelle kunstverket. Videre stilles det krav til at oppgaven ikke skal laste inn samme bilde flere ganger, men lagre det på klienten første gang det lastes opp. Nettleseren er smart og håndterer dette for oss. Når et bilde lastes inn første gang, vil det automatisk lagres i hurtigminne/cache. Dermed kan man bla mellom de ulike fanene, uten at bildene må lastes på nytt hver gang.
+HTML Web Storage
+Vi har i applikasjonen tatt i bruk HTML Web Storage, herunder local storage og session storage. Local storage har vi brukt til å kunne tilby brukeren lagring av en utvalgt galleri-kombinasjon. Her har vi implementert “Save art” og “Fetch art”, som lagrer og henter verdiene. Med session storage har vi laget metoder som gjør at du kan personalisere applikasjonen ved å skrive inn navnet ditt øverst i headeren. Navnet vil vises under varigheten av hver session, og vil bli slettet fra session storage når vinduet lukkes (ikke ved å kun refreshe siden). 
 
-### `npm test`
+###Responsive Web Design
+Når det kommer til applikasjonens responsivitet, stilles det krav til at både layout og skalering skal se bra ut, og at funksjonalitet og brukerinteraksjon skal fungere godt både på mobil, tablet og PC. For å oppnå den ønskede funksjonaliteten har vi brukt media-queries, viewport og flexbox. Det inkluderer at bilder, tekst og lydbokser og øvrig innhold på nettsiden, skalerer. Applikasjonen skifter fra rad-basert layout til kolonne-basert layout i flexbox når man minimerer nettleser-vinduet, ved bruk av flex-direction. Vi har også satt breakpoint med media-query for når skjermen skal gå over til mobilvisning. Responsiviteten sikrer at nettsiden også er tilpasset visning på tablet. Alt dette har blitt oppnådd uten 
+Node.js og NPM
+Vårt prosjekt baserer seg på Node.js og bruk av NPM (Node Package Manager). For å sette opp React applikasjonen brukte vi kommandoen npx create-react-app webprosjekt2. Vi har i tillegg brukt kommandoen npm start for å kjøre prosjektet, npm test for å kjøre testen vår og npm build for å lage build.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###Testing
+Vi har satt opp en snapshottest ved å bruke Jest for å teste React-applikasjonen vår. Denne testen sjekker App.js render()-funksjonen. Vi har i tillegg testet applikasjonens responsivitet på ulike enheter: Pc, en iPhone og på en iPad. Her observerte vi at nettsidens elementer legger seg under hverandre når skjermen blir for liten til å opprettholde sidens layout og funksjonalitet med elementene ved siden av hverandre. Vi ser at alt av skalering og responsivitet er slik vi vil at det skal være, og applikasjonen fungerer godt på alle tre enhetene. 
 
-### `npm run build`
+###Installering
+Vi har lastet opp til server og gjort prosjektet vårt tilgjengelig på http://it2810-09.idi.ntnu.no/prosjekt2/. 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###Bruk av GIT/Koding
+Underveis i prosjektet har vi hatt som mål å følge de ulike konvensjonene som gjelder for de ulike teknologiene vi har benyttet oss av, og har ellers forsøkt å holde koden ryddig og mest mulig lettleselig for å gjøre samarbeidet lettere. Kommentarer er også lagt inn for å forklare kode der det har føltes nødvendig. GIT har vært et svært nyttig verktøy for oss underveis i prosjektet. Vi delte prosjektet inn i issues og brukte issue-boardet flittig til å holde styr på hvor langt vi var kommet i utviklingen. I tillegg oppdaterte vi issue-boardet ved å kontinuerlig  oppføre nye issues og endre status ved fremgang. Ved commit har vi prøvd å være konsekvente på å merke den med hvilket/hvilke issue(s) det løser. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###Kilder
+Tabs: https://alligator.io/react/tabs-component/
+Elefant: http://thecraftchop.com/entries/svg/baby-elephant
+Elefant2: https://www.flaticon.com/free-icon/elephant-side-view_47101
+Elefant3: https://www.flaticon.com/free-icon/elephant_1419285
+Elefant4: https://svgsilh.com/image/304755.html
+Giraff1: https://www.flaticon.com/free-icon/giraffe-silhouette_47057
+Giraff2: http://thecraftchop.com/tags/entries/giraffe
+Giraff3: https://www.clipart.email/clipart/free-giraffe-clipart-black-and-white-18131.html
+Giraff4: https://www.clipart.email/clipart/free-giraffe-clipart-18153.html
+Dog1: https://www.svgrepo.com/svg/24782/dog
+Dog2: https://www.svgrepo.com/svg/26167/dog-face
+Dog3: https://www.svgrepo.com/svg/163658/angry-bulldog-face
+Dog4: https://commons.wikimedia.org/wiki/File:Dog.svg
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
