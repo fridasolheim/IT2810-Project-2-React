@@ -1,5 +1,8 @@
-.App {
-  text-align: center;
+.App > * {
+    margin-top: 0px;
+    /*-webkit-flex: 1 1 0;
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;*/
 }
 
 .App-logo {
@@ -13,8 +16,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -22,12 +25,242 @@
 .App-link {
   color: #61dafb;
 }
+.Content{
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  /*max-width: 45rem;  /*erstatt med max-width for responsiv(men stygg) løsning
+  height: 25rem;  erstatt med max-height for responsiv(men stygg) løsning*/
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;  
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.subContent{
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+@media screen and (max-width: 500px){
+  .Content {
+    padding: 10px 10px;
+    font-size: 1em;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+  .container1{
+    flex-direction: column;
+    align-items: center;
+  }
+  .container2{
+    flex-direction: column;
+    align-items: center;
+  }
+  /*.firstHeader{
+    size: 9px !important;
+  }
+  .secondHeader{
+    size: 9px !important;
+  }*/
+  .buttonStyle{
+    height: 20px;
+    line-height: 20px;
+    width: 75px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 9px;
+    align-items: center !important;
+  }
+  .subContent{
+    flex-direction: column;
+  }
+  .checkboxesStyle{
+    align-items: center;
+  }
+  
+  .tabs{
+    align-items: center;
   }
 }
+.mediaContent{
+  width: 60%;
+  height: 60%;
+  flex-direction: row;
+}
+.image1{
+  max-width: 1400rem;
+  max-height: 1400rem;
+  width: 100%; 
+  height: auto;
+  align-items: right;
+  padding:15px;
+}
+.tabs{
+  max-width: 70%;
+}
+.break{
+  flex-basis: 100%;
+}
+
+.text1{
+  text-align: left;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 30vp;
+  height: 30vp;
+  padding:10px;
+  /*max-width: 10rem;*/
+}
+
+.Header{
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 170px;
+  width: 100vp;
+  line-height: 35px;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  padding-top: 20px;
+}
+
+.firstHeader{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: 2px; 
+  color: white;
+}
+h2{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1px;
+}
+.secondHeader{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: black;
+  background: #ccc;
+  letter-spacing: 3px; 
+  justify-content: space-around;
+  color: white;
+  font-weight: 200;
+}
+.container1{
+  display: flex;
+  justify-content: space-around;
+  align-content: left;
+  margin-right: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.container2{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-top: 10px;
+}
+
+.checkBoxes{
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid black;
+  margin-right: 20px;
+  margin-left: 20px;  
+}
+
+.checkboxesStyle{
+  display: flex;
+  align-items: left !important;
+  flex-direction: column;
+  vertical-align: middle;
+  float: left;
+  margin-bottom: 5px;
+}
+
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0px 1px;
+  text-decoration: black;
+  text-decoration-style: solid;
+}
+
+.buttonStyle{
+  background-color: #282c34;
+  height: 40px;
+  line-height: 40px;
+  width: 120px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  align-content: center;
+}
+.buttonStyle:hover{
+  /*font-style: italic;*/
+  font-weight: 700;
+  color: #282c34;
+  background-color: white;
+  box-shadow: 0px 0px 0px 3px black;
+  cursor: pointer;
+}
+.headerSubmit{
+  background-color: white;
+  height: 20px;
+  line-height: 20px;
+  width: 144px;
+  vertical-align: middle;
+  font-size: 10px;
+  font-weight: 600;
+  color: #282c34;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+}
+.inputName{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  text-align: center;
+}
+
+.headerForm{
+  display: flex;
+  padding-bottom: 40px;
+  flex-direction: row;
+}
+
+.pic{
+  width: 100vp;
+  max-width:60px !important;
+  max-height: 60px !important;
+}
+
+.textContent{
+  width: 100vp;
+  max-width: 50rem;
+}
+
