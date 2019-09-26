@@ -104,6 +104,7 @@ class App extends Component {
     })
   }
   
+
   handleOptionChange = changeEvent => {
       if((Number(changeEvent.target.value))<4){
         this.setState({chosenPicture: Number(changeEvent.target.value)})
@@ -118,9 +119,11 @@ class App extends Component {
 
 render(){  
   return(
+    
     <div className="App">
       <Header/>
       <div className="container1">
+        
         <Tabs className="Tabs" whichTab={this.whichTab}>
         <div label="Welcome" className="mediaContent">
             <div className='image1'><img src={kiwi} className="kiwi-bird" alt="kiwi" /></div>
@@ -140,6 +143,7 @@ render(){
           <Page soundNr={this.state.chosenSound} pictureNr={this.state.chosenPicture} textNr={this.state.chosenText} activeTab={this.state.activeTab}/> 
         </div>
         </Tabs> 
+        
         <div className= "checkboxesStyle">
           <h2>PICTURE</h2>
           <form>
