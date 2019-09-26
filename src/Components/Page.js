@@ -52,7 +52,6 @@ class Page extends Component {
         this.getImage()
         this.getText()
         this.getSound()
-        console.log(this.props.activeTab)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -60,7 +59,6 @@ class Page extends Component {
             this.getImage()
             this.getText()
             this.getSound()
-            console.log(this.props.activeTab)
         }  
     }
       
@@ -104,11 +102,13 @@ class Page extends Component {
         return(
             <div>
                 <div className="Content">
-                    <div  dangerouslySetInnerHTML={{__html: this.state.bildeTittel}}/>
-                    <div className="image1">
-                    <div className="image1" dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/></div>
-                    <audio src={this.state.lyd} controls autoPlay/>
+                    <div className="subContent">
+                        <div dangerouslySetInnerHTML={{__html: this.state.bildeTittel}}/>
+                        <div className="image1" dangerouslySetInnerHTML={{__html: this.state.tekstTittel}}/>
                     </div>
+                    <div className="break"></div>
+                    <audio src={this.state.lyd} controls autoPlay/>
+                </div>
             </div>
         );
     }

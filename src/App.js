@@ -75,26 +75,27 @@ class App extends Component {
     localStorage.setItem('chosenSound', this.state.chosenSound);
     localStorage.setItem('chosenText', this.state.chosenText);
     console.log("Numbers transmitted to local storage");
+    alert("Art saved, you can press 'Fetch Art' anytime to see your saved art")
   }
 
   handleFetch = () => {
-    console.log("Fra local: ", localStorage.getItem('chosenPicture'), localStorage.getItem('chosenSound'), localStorage.getItem('chosenText'));
     this.setState({chosenPicture: Number(localStorage.getItem('chosenPicture'))});
     this.setState({chosenSound: Number(localStorage.getItem('chosenSound'))});
     this.setState({chosenText: Number(localStorage.getItem('chosenText'))});
-    console.log("Fetched numbers: ", this.state.chosenPicture, this.state.chosenSound, this.state.chosenText);
+    alert("Art fetched, check your tabs to se your saved art")
   }
 
   //upon clicking "generate art"
   handleClick = (formSubmitEvent) => {
     formSubmitEvent.preventDefault();
     console.log("handleClick clicked!");
-    console.log("pic:" + this.state.chosenPicture,", sound:" + this.state.chosenSound,", text:" + this.state.chosenText);
+    alert("Art generated! Check your tabs to see your collection")
   }
 
   handleClear = () => {
     //Reset state:
     this.setState({chosenText: this.null, chosenSound: this.null, chosenPicture: this.null});
+    alert("Art cleared, click a new tab to update")
   };
 
   whichTab = (tab) => {
