@@ -21,16 +21,17 @@ Vi har lastet opp til server og gjort prosjektet vårt tilgjengelig på http://i
 ### Bruk av GIT/Koding
 Underveis i prosjektet har vi hatt som mål å følge de ulike konvensjonene som gjelder for de ulike teknologiene vi har benyttet oss av, og har ellers forsøkt å holde koden ryddig og mest mulig lettleselig for å gjøre samarbeidet lettere. Kommentarer er også lagt inn for å forklare kode der det har føltes nødvendig. GIT har vært et svært nyttig verktøy for oss underveis i prosjektet. Vi delte prosjektet inn i issues og brukte issue-boardet flittig til å holde styr på hvor langt vi var kommet i utviklingen. I tillegg oppdaterte vi issue-boardet ved å kontinuerlig  oppføre nye issues og endre status ved fremgang. Ved commit har vi prøvd å være konsekvente på å merke den med hvilket/hvilke issue(s) det løser.
 ### Kilder
-Tabs: https://alligator.io/react/tabs-component/
-Elefant: http://thecraftchop.com/entries/svg/baby-elephant
-Elefant2: https://www.flaticon.com/free-icon/elephant-side-view_47101
-Elefant3: https://www.flaticon.com/free-icon/elephant_1419285
-Elefant4: https://svgsilh.com/image/304755.html
-Giraff1: https://www.flaticon.com/free-icon/giraffe-silhouette_47057
-Giraff2: http://thecraftchop.com/tags/entries/giraffe
-Giraff3: https://www.clipart.email/clipart/free-giraffe-clipart-black-and-white-18131.html
-Giraff4: https://www.clipart.email/clipart/free-giraffe-clipart-18153.html
-Dog1: https://www.svgrepo.com/svg/24782/dog
-Dog2: https://www.svgrepo.com/svg/26167/dog-face
-Dog3: https://www.svgrepo.com/svg/163658/angry-bulldog-face
-Dog4: https://commons.wikimedia.org/wiki/File:Dog.svg
+* Tabs: https://alligator.io/react/tabs-component/
+* Lyder: https://freesound.org/
+* Elefant: http://thecraftchop.com/entries/svg/baby-elephant
+* Elefant2: https://www.flaticon.com/free-icon/elephant-side-view_47101
+* Elefant3: https://www.flaticon.com/free-icon/elephant_1419285
+* Elefant4: https://svgsilh.com/image/304755.html
+* Giraff1: https://www.flaticon.com/free-icon/giraffe-silhouette_47057
+* Giraff2: http://thecraftchop.com/tags/entries/giraffe
+* Giraff3: https://www.clipart.email/clipart/free-giraffe-clipart-black-and-white-18131.html
+* Giraff4: https://www.clipart.email/clipart/free-giraffe-clipart-18153.html
+* Dog1: https://www.svgrepo.com/svg/24782/dog
+* Dog2: https://www.svgrepo.com/svg/26167/dog-face
+* Dog3: https://www.svgrepo.com/svg/163658/angry-bulldog-face
+* Dog4: https://commons.wikimedia.org/wiki/File:Dog.svg
